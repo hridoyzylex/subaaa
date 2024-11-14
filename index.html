@@ -1,18 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>SUBAAA</title>
+    <style>
+        /* Center the body content */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
+        h1 {
+            font-size: 24px;
+            padding-left: 2px;
+            padding-right: 2px;
+            margin-top: 24px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: gray;
+        }
+
+        /* Container for images in two columns */
+        .image-container {
+            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 1280px;
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .location-container{
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1280px;
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        /* Style for the lightbox container */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            .image-container {
+                grid-template-columns: 1fr;
+                padding: 4px;
+            }
+
+            .location-container{
+                grid-template-columns: 1fr;
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+        }
+    </style>
+</head>
 <body>
     <h1>State University of Bangladesh Architecture Alumni Association</h1>
-    <br>
-    <br>
-    <br>
     <h2>Site Under Construction...</h2>
-</body>
 
+    <!-- Image container -->
+    <div class="image-container">
+        <a href="images/image01.jpg" class="image-link">
+            <img src="images/image01.jpg" alt="image01.jpg">
+        </a>
+        <a href="images/image02.jpg" class="image-link">
+            <img src="images/image02.jpg" alt="image02.jpg">
+        </a>
+    </div>
+
+    <!-- Image container with two-column layout -->
+    <h2>Location</h2>
+    <div class="location-container">
+        <a href="images/SUBAAA/IMG-20241114-WA0001.jpg" class="image-link">
+            <img src="images/SUBAAA/IMG-20241114-WA0001.jpg" alt="IMG-20241114-WA0001.jpg">
+        </a>
+        <a href="images/SUBAAA/IMG-20241114-WA0002.jpg" class="image-link">
+            <img src="images/SUBAAA/IMG-20241114-WA0002.jpg" alt="IMG-20241114-WA0002.jpg">
+        </a>
+        <a href="images/SUBAAA/IMG-20241114-WA0003.jpg" class="image-link">
+            <img src="images/SUBAAA/IMG-20241114-WA0003.jpg" alt="IMG-20241114-WA0003.jpg">
+        </a>
+        <a href="images/SUBAAA/IMG-20241114-WA0004.jpg" class="image-link">
+            <img src="images/SUBAAA/IMG-20241114-WA0004.jpg" alt="IMG-20241114-WA0004.jpg">
+        </a>
+        <a href="images/SUBAAA/IMG-20241114-WA0005.jpg" class="image-link">
+            <img src="images/SUBAAA/IMG-20241114-WA0005.jpg" alt="IMG-20241114-WA0005.jpg">
+        </a>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; background-color: #f1f1f1; width: 100%; margin-top: 48px;">
+        <p>
+          <span style="text-decoration: none; color: #515151;">Design & Developed by </span>
+          <a href="https://www.teamexus.com/" target="_blank" style="text-decoration: none;">
+            <span style="text-decoration: none; color: #7346f0;">Teamexus Solutions Ltd. </span> <span style="text-decoration: none; color: #515151;">| Copyright © 2024 - All Rights Reserved.</span>
+          </a>
+        </p>
+    </footer>
+
+    <!-- Lightbox for larger images -->
+    <div class="lightbox" id="lightbox">
+        <button class="close" id="closeBtn">&times;</button>
+        <img id="lightboxImg" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        // Get all image links and the lightbox container
+        const imageLinks = document.querySelectorAll('.image-link');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Event listener for each image
+        imageLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                const imgSrc = link.href;
+                lightbox.style.display = 'flex';
+                lightboxImg.src = imgSrc;
+            });
+        });
+
+        // Close the lightbox when clicking the close button
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        // Close the lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
