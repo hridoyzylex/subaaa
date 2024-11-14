@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,12 @@
             text-align: center;
             background-color: #ffffff;
             color: #2b2b2b;
-            padding: 0 16px; /* Add padding to body for mobile view */
+            padding: 0 16px;
+            /* Add padding to body for mobile view */
         }
 
         h1 {
             font-size: 26px;
-            margin-top: 24px;
             color: #0d47a1;
         }
 
@@ -38,7 +39,8 @@
             gap: 15px;
             max-width: 1200px;
             width: 100%;
-            padding: 0 20px; /* Add padding for desktop view */
+            padding: 0 20px;
+            /* Add padding for desktop view */
             box-sizing: border-box;
         }
 
@@ -149,17 +151,24 @@
 
         /* Responsive styling */
         @media (max-width: 767px) {
-            .image-container, .location-container {
+
+            .image-container,
+            .location-container {
                 grid-template-columns: 1fr;
-                padding: 0; /* Remove extra padding on mobile */
-                margin: 0 auto; /* Center content on mobile */
+                padding: 0;
+                /* Remove extra padding on mobile */
+                margin: 0 auto;
+                /* Center content on mobile */
             }
         }
     </style>
 </head>
+
 <body>
+    <h2>Welcome To</h2>
     <h1>State University of Bangladesh Architecture Alumni Association</h1>
-    <h2>Site Under Construction...</h2>
+    <br>
+    <!-- <h2>Site Under Construction...</h2> -->
 
     <!-- Image container -->
     <div class="image-container">
@@ -172,7 +181,7 @@
     </div>
 
     <!-- Location images container -->
-    <h2>Location</h2>
+    <h2>Reunion Bus Route Location:</h2>
     <div class="location-container">
         <a href="images/SUBAAA/Route-1.jpg" class="image-link">
             <img src="images/SUBAAA/Route-1.jpg" alt="Route-1.jpg">
@@ -202,8 +211,9 @@
     <!-- Footer -->
     <footer>
         <p>
-            <span>Design & Developed by </span>
-            <a href="https://www.teamexus.com/" target="_blank">Teamexus Solutions Ltd.</a> | Copyright © 2024 - All Rights Reserved.
+            <span>Designed & Developed by </span>
+            <a href="https://www.teamexus.com/" target="_blank">Teamexus Solutions Ltd.</a> | Copyright © 2024 - All
+            Rights Reserved.
         </p>
     </footer>
 
@@ -222,7 +232,7 @@
 
         // Event listener for each image
         imageLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault(); // Prevent default link behavior
                 const imgSrc = link.href;
                 lightbox.style.display = 'flex';
@@ -231,16 +241,17 @@
         });
 
         // Close the lightbox when clicking the close button
-        closeBtn.addEventListener('click', function() {
+        closeBtn.addEventListener('click', function () {
             lightbox.style.display = 'none';
         });
 
         // Close the lightbox when clicking outside the image
-        lightbox.addEventListener('click', function(e) {
+        lightbox.addEventListener('click', function (e) {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
             }
         });
     </script>
 </body>
+
 </html>
